@@ -1,8 +1,8 @@
 import useGlobalStore from "@/store/globalStore";
+
 import {
   DarkMode as DarkModeIcon,
   LightMode as LightModeIcon,
-  Navigation,
 } from "@mui/icons-material";
 import {
   AppBar,
@@ -16,45 +16,32 @@ import {
 } from "@mui/material";
 import Services from "../Services";
 import Link from "next/link";
+import HeaderNavigation from "./Navigation";
+import { useRouter } from "next/router";
+import Config from "@/Config";
 
 export default function Header() {
   const switchTeme = useGlobalStore((s) => s.switchTheme);
   const themeMode = useGlobalStore((s) => s.themeMode);
+  const router = useRouter();
+  const pageObj = Object.entries(Config.pages).find(
+    ([_, page]) => page.path == router.asPath
+  );
+  const title = pageObj && pageObj[1] ? pageObj[1].name : "Admin";
 
   return (
     <header>
       <AppBar>
         <Toolbar>
           <Typography sx={{ mr: "auto" }} variant="h4">
-            Admin Page
+            {title}
           </Typography>
 
-          <nav>
-            <Stack
-              component={"ul"}
-              spacing={2}
-              direction="row"
-              sx={{ listStyle: "none" }}
-            >
-              <li>
-                <Link href={"/services"}>
-                  <Button variant="outlined">
-                    <Typography color={"white"}>Услуги</Typography>
-                  </Button>
-                </Link>
-              </li>
-              <li>
-                <Link href={"/servicetypes"}>
-                  <Button variant="outlined">
-                    <Typography color={"white"}>Филиали</Typography>
-                  </Button>
-                </Link>
-              </li>
-            </Stack>
-          </nav>
+          <HeaderNavigation />
 
           <Switch
             size="medium"
+            name="theme-switch"
             inputProps={{ "aria-label": "xxx" }}
             icon={<DarkModeIcon fontSize="small" />}
             checkedIcon={<LightModeIcon fontSize="small" />}

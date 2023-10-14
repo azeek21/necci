@@ -8,10 +8,33 @@ const Config = {
     serviceTypes: "/serviceTypes",
     clientTypes: "/clientTypes",
     services: "/services",
+    offices: "/offices",
   },
   pages: {
-    index: "/",
-    login: "/login",
+    index: {
+      path: "/",
+      name: "Index",
+    },
+    login: {
+      path: "/login",
+      name: "Login",
+    },
+    services: {
+      path: "/services",
+      name: "Услуги",
+    },
+    servicetypes: {
+      path: "/servicetypes",
+      name: "Тип филиалов",
+    },
+    map: {
+      path: "/map",
+      name: "Google Map",
+    },
+    office: {
+      path: "/offices",
+      name: "Офисы",
+    },
   },
 };
 

@@ -4,7 +4,7 @@ import reqService from "./services/reqService";
 async function getServiceTypes() {
   try {
     const res = await reqService.get(Config.endpoints.serviceTypes);
-    return res.data as ServiceType[];
+    return res.data as BankServiceType[];
   } catch (error) {
     console.log("no servie types: ", error);
     return null;
