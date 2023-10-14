@@ -7,7 +7,6 @@ export default function GlobalThemeProvider({ children }: PropsWithChildren) {
   const setTheme = useGlobalStore((s) => s._setTheme);
   const isOptedOutOfSystem = localStorage.getItem("noSystemTheme") || false;
   const userPrefersDark = useMediaQuery("(prefers-color-scheme: dark)");
-  console.log(userPrefersDark, isOptedOutOfSystem);
   const theme = useMemo(() => {
     let realMode: "light" | "dark" = "dark";
 

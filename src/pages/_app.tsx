@@ -6,13 +6,18 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { CssBaseline } from "@mui/material";
-import GlobalThemeProvider from "@/Components/theme/ThemeProvider";
+import GlobalThemeProvider from "@/Components/Theme/ThemeProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <GlobalThemeProvider>
       <CssBaseline />
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </GlobalThemeProvider>
   );
 }

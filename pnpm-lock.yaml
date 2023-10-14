@@ -20,6 +20,12 @@ dependencies:
   '@mui/material':
     specifier: ^5.14.13
     version: 5.14.13(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0)
+  '@mui/x-data-grid':
+    specifier: ^6.16.2
+    version: 6.16.2(@mui/material@5.14.13)(@mui/system@5.14.13)(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0)
+  '@tanstack/react-query':
+    specifier: 5.0.0-rc.12
+    version: 5.0.0-rc.12(react-dom@18.2.0)(react@18.2.0)
   axios:
     specifier: ^1.5.1
     version: 1.5.1
@@ -539,6 +545,28 @@ packages:
       react-is: 18.2.0
     dev: false
 
+  /@mui/x-data-grid@6.16.2(@mui/material@5.14.13)(@mui/system@5.14.13)(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-nKZxlzkcqXUbgxvz01J0okziBH4uvnEVVneOSzp5TeCOC7Wke1YFBJRRjR6H6tVpbaqlOw/LFULrTfcJtiaMBQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.4.1
+      '@mui/system': ^5.4.1
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@mui/material': 5.14.13(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0)
+      '@mui/system': 5.14.13(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.28)(react@18.2.0)
+      '@mui/utils': 5.14.13(@types/react@18.2.28)(react@18.2.0)
+      clsx: 2.0.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      reselect: 4.1.8
+    transitivePeerDependencies:
+      - '@types/react'
+    dev: false
+
   /@next/env@13.5.4:
     resolution: {integrity: sha512-LGegJkMvRNw90WWphGJ3RMHMVplYcOfRWf2Be3td3sUa+1AaxmsYyANsA+znrGCBjXJNi4XAQlSoEfUxs/4kIQ==}
     dev: false
@@ -663,6 +691,28 @@ packages:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
     dependencies:
       tslib: 2.6.2
+    dev: false
+
+  /@tanstack/query-core@5.0.0-rc.12:
+    resolution: {integrity: sha512-gEgRIkFMjxhu+rbomSxAYTA+aPaPrLffJwFCpfd/AqJ8PTlnredJnFfFskCbR6oZo/1XEuDORFW9c6b4gOnEKQ==}
+    dev: false
+
+  /@tanstack/react-query@5.0.0-rc.12(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-pUb6xkHs2YFb9N6/34ZMut4LG0yO+uqjDaoWmxOsmIZVwPYCNrsRjI8kaF/6F+5gyxJp6hzFHH4Jlukbx/tReA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@tanstack/query-core': 5.0.0-rc.12
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@types/json5@0.0.29:
@@ -2691,6 +2741,10 @@ packages:
       define-properties: 1.2.1
       set-function-name: 2.0.1
     dev: true
+
+  /reselect@4.1.8:
+    resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
+    dev: false
 
   /resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}

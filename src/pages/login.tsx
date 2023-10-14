@@ -1,4 +1,5 @@
 import Header from "@/Components/Header";
+import Config from "@/Config";
 import { login } from "@/lib/auth";
 import {
   Visibility as VisibleIcon,
@@ -17,9 +18,11 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function Login() {
+  const router = useRouter();
   const [data, setData] = useState({
     login: "",
     password: "",
@@ -30,17 +33,20 @@ export default function Login() {
 
   function handleDataChange(ev: ChangeEvent<HTMLInputElement>) {
     const { name, value } = ev.target;
+
     if (typeof name === "string") {
       setData((old) => ({ ...old, [name]: value }));
     }
   }
 
-  function handleLogin(ev: FormEvent) {
+  async function handleLogin(ev: FormEvent) {
     ev.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    let success = await login(data.login, data.password);
+    if (success) {
+      router.replace(Config.pages.index);
+    }
+    setIsLoading(false);
   }
 
   return (
