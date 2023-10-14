@@ -1,5 +1,4 @@
 import { Container, Toolbar } from "@mui/material";
-import WithAuth from "../Hocs/WithAuth";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useState } from "react";
 import useGlobalStore from "@/store/globalStore";
@@ -9,7 +8,7 @@ const rs = [
   { id: 2, name: "Shaxzod" },
 ];
 
-function Services() {
+export default function Services() {
   return (
     <Container sx={{ pt: "2rem" }}>
       <DataGrid
@@ -29,4 +28,4 @@ function Services() {
   );
 }
 
-export default WithAuth(Services);
+// export default WithAuth(Services);
