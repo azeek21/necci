@@ -44,7 +44,7 @@ export default function Login() {
     setIsLoading(true);
     let success = await login(data.login, data.password);
     if (success) {
-      router.replace(Config.pages.index);
+      router.replace(Config.pages.index.path);
     }
     setIsLoading(false);
   }

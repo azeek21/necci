@@ -43,6 +43,6 @@
 //   );
 // }
 
-export default function () {
+export default function MyMap() {
   return <h1>Hi</h1>;
 }
