@@ -1,6 +1,29 @@
 import Config from "@/Config";
 import reqService from "./services/reqService";
 
+const days: Record<WeekDayName, string> = {
+  MONDAY: "Понедельник",
+  TUESDAY: "Вторник",
+  WEDNESDAY: "Среда",
+  THURSDAY: "Четверг",
+  FRIDAY: "Пятница",
+  SATURDAY: "Суббота",
+  SUNDAY: "Воскресенье",
+} as const;
+
+function _weekDayBase(name: WeekDayName) {
+  return {
+    day: name,
+    from: "09:00",
+    to: "18:00",
+    fullDay: false,
+    name: days[name],
+    isDayOff: true,
+    latitude: 0,
+    longitude: 0,
+  };
+}
+
 async function getOffices() {
   try {
     const res = await reqService.get(Config.endpoints.offices);
@@ -15,7 +38,9 @@ function createEmptyOffice(): Omit<Office, "id"> {
     address: "",
     latitude: 0,
     longitude: 0,
-    workingHours: [],
+    workingHours: Object.entries(days).map(([day, name]) => {
+      return _weekDayBase(day as WeekDayName);
+    }),
     metroStation: "",
   };
 }

@@ -28,6 +28,8 @@ type WeekDay = {
   to: string;
   day: WeekDayName;
   fullDay?: boolean;
+  name?: string;
+  isDayOff?: boolean;
 };
 
 type Office = {

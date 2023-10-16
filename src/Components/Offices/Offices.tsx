@@ -89,7 +89,7 @@ export default function Offices() {
       </Stack>
       <DataGrid
         sx={{
-          minWidth: 500,
+          minHeight: 500,
         }}
         columns={cols}
         rows={offices || []}
